@@ -13,14 +13,7 @@ export default function Hero() {
       // Produit en croix, and add +100 to get a range between 100 and 900
       let progress = ((xPercentage * 800) / 100) + 100;
 
-      // Appliquer le style une fois toutes les X millisecondes
-      const throttleTimeout = 50; // ajuste cette valeur selon tes besoins
-      const throttledFunction = throttle(() => {
-        titleRef.current!.style.fontVariationSettings = `'wght' ${Math.round(progress)}`;
-      }, throttleTimeout);
-      throttledFunction();
-
-      // titleRef.current.style.fontVariationSettings = `'wght' ${Math.round(progress)}`;
+      titleRef.current.style.fontVariationSettings = `'wght' ${Math.round(progress)}`;
     }
   }
 
@@ -29,18 +22,6 @@ export default function Hero() {
 
     return () => {document.body.removeEventListener("mousemove", handleMouseMove);}
   }, [])
-
-  // Utilise la fonction de "throttle"
-const throttle = (func: () => void, limit: number) => {
-  let inThrottle: boolean;
-  return () => {
-    if (!inThrottle) {
-      func();
-      inThrottle = true;
-      setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
 
 
   return (
