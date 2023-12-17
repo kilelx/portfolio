@@ -12,7 +12,7 @@ export default {
         white: "#F7F7F7"
       },
       fontFamily: {
-        playfair: ["Playfair Display", "serif"],
+        playfair: ["nPlayfair Display", "serif"],
         montserrat: ["Montserrat", "sans-serif"]
       }
     },

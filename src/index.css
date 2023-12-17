@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  
-  font-weight: 725;
-}
-
-#first-span {
+h1:first-child {
   font-size: calc(7000vw/1000);
-  font-weight: 400;
 }
 
-#scnd-span {
+.outline-title {
   font-size: calc(9000vw/1000);
+  /* -webkit-text-stroke: 1px #CEA07E; */
+  text-shadow:
+  1px 1px 0 #CEA07E,
+  -1px -1px 0 #CEA07E,
+  1px -1px 0 #CEA07E,
+  -1px 1px 0 #CEA07E,
+  1px 1px 0 #CEA07E;
+  will-change: font-variation-settings;
+  font-variation-settings: "wght" 700;
 }
