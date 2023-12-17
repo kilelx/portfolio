@@ -3,5 +3,15 @@
 @tailwind utilities;
 
 h1 {
+  
   font-weight: 725;
+}
+
+#first-span {
+  font-size: calc(7000vw/1000);
+  font-weight: 400;
+}
+
+#scnd-span {
+  font-size: calc(9000vw/1000);
 }

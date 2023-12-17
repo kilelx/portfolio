@@ -1,8 +1,10 @@
 export default function App() {
   return (
-    <div
-    className="bg-blue-900 h-full flex">
-      <h1 className="text-9xl font-playfair">Hey</h1>
-    </div>
+    <>
+      <h1 className="">
+        <span  className="text-white" id="first-span">I'm Kieran,</span><br></br>
+        <span className="text-brown" id="scnd-span">Creative developer</span>
+      </h1>
+    </>
   )
 }

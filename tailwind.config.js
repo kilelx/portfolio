@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        dark: "#0C0C0C"
+        dark: "#0C0C0C",
+        brown: "#CEA07E",
+        white: "#F7F7F7"
       },
       fontFamily: {
         playfair: ["Playfair Display", "serif"],
