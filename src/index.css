@@ -4,7 +4,7 @@
 
 /* UTILS */
 .section-container {
-  @apply w-full px-[30px]
+  @apply w-col12 mx-auto
 }
 
 /* HERO */
@@ -14,7 +14,6 @@ h1:first-child {
 
 .outlined-hero {
   font-size: calc(9000vw/1000);
-  /* -webkit-text-stroke: 1px #CEA07E; */
   text-shadow:
   1px 1px 0 #CEA07E,
   -1px -1px 0 #CEA07E,
@@ -25,23 +24,10 @@ h1:first-child {
   font-variation-settings: "wght" 500;
 }
 
-/* .col-1 {
-  width: calc(((100vw - 60px) - 11*20px) / 12 );
-  height: 50px;
+.developer {
+  font-size: calc(5000vw/1000);
 }
-.col-2 {
-  width: calc(2*(((100vw - 60px) - 10*20px) / 12 ));
-  height: 50px;
+
+#root {
+  height: 500vh;
 }
-.col-3 {
-  width: calc(3*(((100vw - 60px) - 9*20px) / 12 ));
-  height: 50px;
-}
-.col-4 {
-  width: calc(4*(((100vw - 60px) - 8*20px) / 12 ));
-  height: 50px;
-}
-.col-12 {
-  width: calc(12*((100vw - 60px) / 12 ));
-  height: 50px;
-} */
