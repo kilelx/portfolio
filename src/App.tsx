@@ -6,7 +6,7 @@ export default function App() {
     <>
     <Navbar />
     <main>
-      {/* <Hero /> */}
+      <Hero />
     </main>
     </>
   )

@@ -28,11 +28,13 @@ export default function Hero() {
 
   return (
     <section className='section-container' id='hero_section'>
-      <h1 className="">
+      {/* <p>👋</p> */}
+      <h1 className="md:ml-psh1">
         <span  className="text-white font-normal">I'm Kieran,</span><br></br>
-        <span ref={titleRef} className="outlined-hero text-dark font-bold">Creative</span>
-        <span className='text-brown developer'>&nbsp;developer</span>
+        <span ref={titleRef} className="outlined-hero text-dark font-bold text-mob-mammoth">Creative developer</span>
+        {/* <span className='text-brown developer'>&nbsp;developer</span> */}
       </h1>
+
       <a href="" className='border border-white text-white p-[10px] pr-[90px]'>No time? Let's get in touch</a>
     </section>
   )

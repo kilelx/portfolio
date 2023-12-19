@@ -13,7 +13,7 @@ h1:first-child {
 }
 
 .outlined-hero {
-  font-size: calc(9000vw/1000);
+  /* font-size: calc(5000vw/1000); */
   text-shadow:
   1px 1px 0 #CEA07E,
   -1px -1px 0 #CEA07E,
@@ -21,12 +21,12 @@ h1:first-child {
   -1px 1px 0 #CEA07E,
   1px 1px 0 #CEA07E;
   will-change: font-variation-settings;
-  font-variation-settings: "wght" 500;
+  font-variation-settings: "wght" 700;
 }
 
-.developer {
+/* .developer {
   font-size: calc(5000vw/1000);
-}
+} */
 
 #root {
   height: 500vh;
