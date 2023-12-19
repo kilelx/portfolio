@@ -28,7 +28,7 @@ export default function Hero() {
 
 
   return (
-    <section className='section-container flex flex-col md:flex-row md:justify-between items-center mt-36 md:mt-[200px] md:pl-psh1' id='hero_section'>
+    <section className='section-container flex flex-col md:flex-row md:justify-between mt-36 md:mt-[200px] md:pl-psh1' id='hero_section'>
       <div>
         <p className='text-5xl md:text-[50px] -ml-2 mb-3'>👋</p>
         <h1>
