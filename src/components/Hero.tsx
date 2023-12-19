@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react'
+import {useRef, useEffect} from 'react'
 import pictureHero from "../../public/assets/picture_hero.jpg"
 
 export default function Hero() {
@@ -16,7 +16,7 @@ export default function Hero() {
       // Produit en croix, and add +100 to get a range between 100 and 900
       let progress = ((xPercentage * 800) / 100) + 100;
 
-      // titleRef.current.style.fontVariationSettings = `'wght' ${Math.round(progress)}`;
+      titleRef.current.style.fontVariationSettings = `'wght' ${Math.round(progress)}`;
     }
   }
 
@@ -28,7 +28,7 @@ export default function Hero() {
 
 
   return (
-    <section className='section-container flex flex-col md:flex-row md:justify-between items-center mt-28 md:mt-[200px] md:pl-psh1' id='hero_section'>
+    <section className='section-container flex flex-col md:flex-row md:justify-between items-center mt-36 md:mt-[200px] md:pl-psh1' id='hero_section'>
       <div>
         <p className='text-5xl md:text-[50px] -ml-2 mb-3'>👋</p>
         <h1>
