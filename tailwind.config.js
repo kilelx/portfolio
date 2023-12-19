@@ -5,6 +5,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      'mob': {"max": "767px"},
+      'md': '768px',
+    },
     extend: {
       colors: {
         dark: "#0C0C0C",
@@ -33,4 +37,3 @@ export default {
   },
   plugins: [],
 }
-

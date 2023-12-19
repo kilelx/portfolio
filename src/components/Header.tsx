@@ -12,9 +12,9 @@ export default function Header() {
         <a href="#hero_section">Kieran LELEUX</a>
       </div>
 
-      <div className="md:flex md:flex-row md:justify-between">
-        <nav className="text-lg md:flex md:justify-between">
-          <ul className="flex flex-col md:flex-row gap-[30px] text-center">
+      <div className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:w-full mob:h-[90vh]" : "mob:hidden"}`}>
+        <nav className="text-lg flex flex-col items-center md:justify-between">
+          <ul className="flex flex-col md:flex-row gap-[30px] text-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
             <li><a href="">Home</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Projects</a></li>
@@ -43,7 +43,7 @@ export default function Header() {
 
       <button
       onClick={() => setShowMenu(!showMenu)}
-      className={`${showMenu ? "bg-red-200" : "bg-blue-200"} absolute right-0 top-[26px] mr-[30px] md:hidden`}
+      className={`${showMenu ? "bg-red-200" : "bg-blue-200"} absolute right-0 top-[26px] md:hidden`}
       >Burger menu</button>
     </header>
   );
