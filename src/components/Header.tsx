@@ -14,7 +14,7 @@ export default function Header() {
 
       <div className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:w-full mob:h-[90vh]" : "mob:hidden"}`}>
         <nav className="text-lg flex flex-col items-center md:justify-between">
-          <ul className="flex flex-col md:flex-row gap-[30px] text-center md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+          <ul className="flex flex-col md:flex-row gap-[30px] text-center md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2  md:-translate-y-1/2">
             <li><a href="">Home</a></li>
             <li><a href="">About</a></li>
             <li><a href="">Projects</a></li>
