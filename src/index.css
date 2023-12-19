@@ -24,6 +24,12 @@ h1:first-child {
   font-variation-settings: "wght" 700;
 }
 
+br {
+  content: "";
+  display: block;
+  /* margin: calc(-4000vw/1000) 0; */
+}
+
 /* .developer {
   font-size: calc(5000vw/1000);
 } */

@@ -20,6 +20,8 @@ export default {
         montserrat: ["Montserrat", "sans-serif"]
       },
       fontSize: {
+        "mob-intro": "calc(6000vw/1000)",
+        intro: "calc(3500vw/1000)",
         "mob-mammoth": "calc(8000vw / 1000)",
         mammoth: "calc(5000vw/1000)"
       },
