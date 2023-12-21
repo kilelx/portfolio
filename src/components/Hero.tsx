@@ -6,11 +6,8 @@ export default function Hero() {
   const titleRef = useRef<HTMLSpanElement>(null);
   let maxWidth = window.innerWidth;
 
-  // window.addEventListener("resize", () => {maxWidth = window.innerWidth});
-
   const handlePointerMove = (clientX: number) => {
     if(titleRef.current) {
-      // let mouseX = e.clientX;
       // Get the percentage on X of the mouse
       let xPercentage = (clientX * 100) / maxWidth;
       // Produit en croix, and add +100 to get a range between 100 and 900
@@ -28,7 +25,6 @@ export default function Hero() {
       maxWidth = window.innerWidth;
       handleResize(maxWidth);
     });
-    // document.body.addEventListener("mousemove", handleMouseMove);
 
     function handleResize(maxWidth: number) {
       if(maxWidth > 768) {

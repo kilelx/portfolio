@@ -1,10 +1,10 @@
 import Hero from "./components/Hero";
-import Navbar from "./components/Header";
+import Header from "./components/Header";
 
 export default function App() {
   return (
     <>
-    <Navbar />
+    <Header />
     <main>
       <Hero />
     </main>
