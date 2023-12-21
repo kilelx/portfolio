@@ -6,13 +6,13 @@ export default function Hero() {
   const titleRef = useRef<HTMLSpanElement>(null);
   let maxWidth = window.innerWidth;
 
-  window.addEventListener("resize", () => {maxWidth = window.innerWidth});
+  // window.addEventListener("resize", () => {maxWidth = window.innerWidth});
 
-  const handleMouseMove = (e: MouseEvent) => {
+  const handlePointerMove = (clientX: number) => {
     if(titleRef.current) {
-      let mouseX = e.clientX;
+      // let mouseX = e.clientX;
       // Get the percentage on X of the mouse
-      let xPercentage = (mouseX * 100) / maxWidth;
+      let xPercentage = (clientX * 100) / maxWidth;
       // Produit en croix, and add +100 to get a range between 100 and 900
       let progress = ((xPercentage * 800) / 100) + 100;
 
@@ -21,9 +21,31 @@ export default function Hero() {
   }
 
   useEffect(() => {
-    document.body.addEventListener("mousemove", handleMouseMove);
 
-    return () => {document.body.removeEventListener("mousemove", handleMouseMove);}
+    handleResize(maxWidth);
+
+    window.addEventListener('resize', () => {
+      maxWidth = window.innerWidth;
+      handleResize(maxWidth);
+    });
+    // document.body.addEventListener("mousemove", handleMouseMove);
+
+    function handleResize(maxWidth: number) {
+      if(maxWidth > 768) {
+        document.body.addEventListener("mousemove", (e) => handlePointerMove(e.clientX));
+      } else {
+        document.body.addEventListener("touchmove", (e) => handlePointerMove(e.touches[0].clientX));
+      }
+    }
+
+    return () => {
+      document.body.removeEventListener("mousemove", (e) => handlePointerMove(e.clientX));
+      document.body.removeEventListener("touchmove", (e) => handlePointerMove(e.touches[0].clientX))
+      window.removeEventListener('resize', () => {
+        maxWidth = window.innerWidth;
+        handleResize(maxWidth);
+      });
+    }
   }, [])
 
 
@@ -34,7 +56,7 @@ export default function Hero() {
         <h1>
           <span  className="text-mob-intro md:text-intro text-white font-normal">I'm Kieran,</span>
           <br className='md:mt-[calc(-1500vw/1000)]'></br>
-          <span ref={titleRef} className="outlined-hero text-dark font-bold text-mob-mammoth md:text-mammoth">Creative developer</span>
+          <span ref={titleRef} className="outlined-hero text-dark font-bold text-mob-mammoth md:text-mammoth mob:transition mob:delay-1000">Creative developer</span>
         </h1>
 
         <a
