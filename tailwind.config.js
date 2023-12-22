@@ -23,7 +23,11 @@ export default {
         "mob-intro": "calc(6000vw/1000)",
         intro: "calc(3500vw/1000)",
         "mob-mammoth": "calc(8000vw / 1000)",
-        mammoth: "calc(5000vw/1000)"
+        mammoth: "calc(5000vw/1000)",
+        title: "calc(18000vw/1000)"
+      },
+      rotate: {
+        little: "1.5deg",
       },
       width: {
         col1: "calc(((100vw - 60px) - 11*20px) / 12 )",
