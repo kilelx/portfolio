@@ -1,5 +1,5 @@
 import {useRef, useEffect} from 'react'
-import pictureHero from "../../public/assets/picture_hero.jpg"
+import pictureHero from "../assets/picture_hero.jpg"
 
 export default function Hero() {
 
