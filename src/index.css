@@ -8,7 +8,10 @@
 }
 
 /* NAVBAR */
-.link-container > span:nth-child(2) .char {
+ul a > div > span {
+  display: inline-block;
+}
+ul a > div > span:nth-child(2) > span {
   transform: translateY(100%);
 }
 

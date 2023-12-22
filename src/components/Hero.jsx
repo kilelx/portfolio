@@ -3,10 +3,12 @@ import pictureHero from "../assets/picture_hero.jpg"
 
 export default function Hero() {
 
-  const titleRef = useRef<HTMLSpanElement>(null);
+  // const titleRef = useRef<HTMLSpanElement>(null);
+  const titleRef = useRef(null);
   let maxWidth = window.innerWidth;
 
-  const handlePointerMove = (clientX: number) => {
+  // const handlePointerMove = (clientX: number) => {
+  const handlePointerMove = (clientX) => {
     if(titleRef.current) {
       // Get the percentage on X of the mouse
       let xPercentage = (clientX * 100) / maxWidth;
@@ -26,7 +28,8 @@ export default function Hero() {
       handleResize(maxWidth);
     });
 
-    function handleResize(maxWidth: number) {
+    // function handleResize(maxWidth: number) {
+    function handleResize(maxWidth) {
       if(maxWidth > 768) {
         document.body.addEventListener("mousemove", (e) => handlePointerMove(e.clientX));
       } else {
