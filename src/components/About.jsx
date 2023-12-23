@@ -1,7 +1,16 @@
 import React from 'react'
 import Title from './Title'
+import logo1 from '../../public/assets/logo_1.png'
+import logo2 from '../../public/assets/logo_2.png'
+import logo3 from '../../public/assets/logo_3.png'
+import logo4 from '../../public/assets/logo_4.png'
+import logo5 from '../../public/assets/logo_5.png'
+import logo6 from '../../public/assets/logo_6.png'
 
 export default function About() {
+
+  const logos = [logo1, logo2, logo3, logo4, logo5, logo6];
+
   return (
     <section>
         <Title
@@ -10,7 +19,9 @@ export default function About() {
         negative={true}
         />
         <div>
-          
+          {logos.map((logo, index) => {
+            return <img src={logo} alt="" key={index} />
+          })}
         </div>
     </section>
   )
