@@ -9,6 +9,9 @@ export default function About() {
         subtitle=""
         negative={true}
         />
+        <div>
+          
+        </div>
     </section>
   )
 }
