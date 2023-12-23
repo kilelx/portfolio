@@ -6,7 +6,7 @@ export default function App() {
   return (
     <>
     <Header />
-    <main>
+    <main className="overflow-x-hidden">
       <Hero />
       <About />
     </main>

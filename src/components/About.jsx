@@ -4,7 +4,11 @@ import Title from './Title'
 export default function About() {
   return (
     <section>
-        <Title content="About" negative={true}/>
+        <Title
+        content="About"
+        subtitle=""
+        negative={true}
+        />
     </section>
   )
 }
