@@ -10,7 +10,8 @@ import logo6 from '/assets/logo_6.png'
 export default function About() {
 
   const imgContainerRef = useRef(null)
-  const {positions, setPositions} = useState([]);
+  // const {xPositions, setXPositions} = useState([]);
+  // const {yPositions, setYPositions} = useState([]);
 
   const logos = [
     {
@@ -54,8 +55,10 @@ export default function About() {
 
     function placeLogos(xMax, yMax) {
       const placedLogos = logos.map((logo) => {
-          console.log(Math.floor(xMax));
-          console.log(Math.floor(Math.random() * xMax));
+          // console.log(Math.floor(xMax));
+          // console.log(Math.floor(Math.random() * xMax));
+
+          // Empêcher superposition d'éléments
           logo.x = Math.floor(Math.random() * xMax);
           logo.y = Math.floor(Math.random() * yMax);
 
@@ -79,21 +82,7 @@ export default function About() {
         subtitle=""
         negative={true}
         />
-        <div ref={imgContainerRef} className='relative h-[275px] md:h-[350px]'>
-          {/* {logos.map((logo) => (
-            <img
-            src={logo.src}
-            // z-index doesn't work z-${logo.id}
-            className={`relative block`}
-            style= {
-              {top: logo.x,
-                left: logo.y}
-            }
-            alt={`Logo ${logo.name}`}
-            key={logo.id}
-            />
-          ))} */}
-        </div>
+        <div ref={imgContainerRef} className='relative h-[275px] md:h-[350px] mt-8'></div>
         <p>Hello</p>
     </section>
   )
