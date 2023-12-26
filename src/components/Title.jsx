@@ -5,7 +5,7 @@ export default function Title({content, negative}) {
   return (
     <>
       <h2
-      className={`text-title font-playfair text-brown mt-[200px] whitespace-nowrap transform
+      className={`text-mob-title md:text-title font-playfair text-brown mt-[200px] whitespace-nowrap transform
       ${negative ? "-rotate-little" : "rotate-little"}
       `}
       >&nbsp;{content} - {content} - {content}</h2>
