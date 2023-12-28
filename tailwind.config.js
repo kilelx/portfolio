@@ -42,7 +42,7 @@ export default {
         col9: "calc(9*(((100vw - 60px) - 3*20px) / 12 ))",
         col10: "calc(10*(((100vw - 60px) - 2*20px) / 12 ))",
         col11: "calc(11*(((100vw - 60px) - 1*20px) / 12 ))",
-        col12: "calc(100vw - 60px)",
+        col12: "calc(100vw - 60px)"
       },
       margin: {
         psh1: "calc((100vw - 60px - 11*20px) / 12 + 20px)",

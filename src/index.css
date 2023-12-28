@@ -16,12 +16,7 @@ ul a > div > span:nth-child(2) > span {
 }
 
 /* HERO */
-h1:first-child {
-  font-size: calc(7000vw/1000);
-}
-
 .outlined-hero {
-  /* font-size: calc(5000vw/1000); */
   text-shadow:
   1px 1px 0 #CEA07E,
   -1px -1px 0 #CEA07E,
@@ -30,18 +25,4 @@ h1:first-child {
   1px 1px 0 #CEA07E;
   will-change: font-variation-settings;
   font-variation-settings: "wght" 700;
-}
-
-br {
-  content: "";
-  display: block;
-  /* margin: calc(-4000vw/1000) 0; */
-}
-
-/* .developer {
-  font-size: calc(5000vw/1000);
-} */
-
-#root {
-  height: 500vh;
 }

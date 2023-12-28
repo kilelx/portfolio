@@ -26,7 +26,7 @@ export default function About() {
       src: logo2,
       id: 2,
       top: 50,
-      left: 80
+      left: 85
     },
     {
       name: "ThreeJS",
@@ -54,7 +54,7 @@ export default function About() {
       src: logo6,
       id: 6,
       top: 60,
-      left: 10
+      left: 5
     },
   ]
 
@@ -94,17 +94,11 @@ export default function About() {
         subtitle=""
         negative={true}
         />
-        <div className="flex section-container">
-          <div className='w-col6'>
-            <p>Blablabla self taught fond of creative developement pixel perfect animation blablaBlablabla self taught fond of creative developement pixel perfect animation blablaBlablabla self taught fond of creative developement pixel perfect animation blabla</p>
-            <p>Donec elementum eros semper sem consectetur, eu iaculis metus ultricies. Nullam vel neque placerat enim sodales euismod non quis urna. Aenean eget felis a quam dictum congue id quis ligula. Phasellus sodales ante egestas dolor feugiat, et iaculis orci cursus.</p>
-            <p>Aenean sapien augue, mollis non accumsan at, rutrum et augue. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus dapibus ultrices lectus et ullamcorper.</p>
-          </div>
-          <div ref={imgContainerRef} className='relative w-col6 h-[275px] md:h-[350px]'>
+        <div className="flex flex-col md:items-center md:flex-row md:justify-between section-container">
+          <div ref={imgContainerRef} className='relative w-full my-8 md:w-col6 h-[275px] md:h-[350px] md:order-2'>
             {
               logos.map((logo) => {
                 console.log(logo);
-              
                 return(
                   <img
                   src={logo.src}
@@ -115,12 +109,17 @@ export default function About() {
                     {
                       top: logo.top + "%",
                       left: logo.left + "%"
-                    } 
+                    }
                   }
                   />
                 )
               })
             }
+          </div>
+          <div className='md:w-col7'>
+            <p>Blablabla self taught fond of creative developement pixel perfect animation blablaBlablabla self taught fond of creative developement pixel perfect animation blablaBlablabla self taught fond of creative developement pixel perfect animation blabla</p>
+            <br></br>
+            <p>Donec elementum eros semper sem consectetur, eu iaculis metus ultricies. Nullam vel neque placerat enim sodales euismod non quis urna. Aenean eget felis a quam dictum congue id quis ligula. Phasellus sodales ante egestas dolor feugiat, et iaculis orci cursus.</p>
           </div>
         </div>
     </section>
