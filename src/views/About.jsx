@@ -67,7 +67,6 @@ export default function About() {
           <div ref={imgContainerRef} className='relative w-full my-8 md:w-col6 h-[275px] md:h-[350px] md:order-2'>
             {
               logos.map((logo) => {
-                console.log(logo);
                 return(
                   <img
                   src={logo.src}

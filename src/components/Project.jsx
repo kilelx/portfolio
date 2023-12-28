@@ -1,7 +1,8 @@
-import React from 'react'
-
-export default function Project() {
+export default function Project({name, desc, link, img, stack, id}) {
+    console.log(id);
   return (
-    <div>Project</div>
+    <li>
+        <img src={img.imgProjet1}></img>
+    </li>
   )
 }
