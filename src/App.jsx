@@ -1,6 +1,7 @@
-import About from "./components/About";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
+import Header from "./views/Header";
+import About from "./views/About";
+import Hero from "./views/Hero";
+import Work from "./views/Work";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
     >
       <Hero />
       <About />
+      <Work />
     </main>
     </>
   )
