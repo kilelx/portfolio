@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import Title from '../components/Title'
 import logo1 from '/assets/logo_1.png'
 import logo2 from '/assets/logo_2.png'
@@ -6,23 +6,25 @@ import logo3 from '/assets/logo_3.png'
 import logo4 from '/assets/logo_4.png'
 import logo5 from '/assets/logo_5.png'
 import logo6 from '/assets/logo_6.png'
-import Splitting from "splitting"
+import SplitType from 'split-type'
 
 export default function About() {
 
-  const [lines, setLines] = useState([])
-  const splitRef = useRef(null)
-
   useEffect(() => {
-    if (splitRef) {
-      let splitRes = Splitting({
-        by: 'lines',
-      })
+    const text = new SplitType('#target', { types: 'lines' });
 
-      // Access to different lines
-      console.log(splitRes[0].lines);
-    }
-  }, [splitRef])
+    // Lier la width au scroll, la faire descendre à zéro
+
+    const allLines = document.querySelectorAll(".line");
+    allLines.forEach((line) => {
+      line.classList.add("relative")
+      const divElement = document.createElement("div");
+      divElement.classList.add("absolute", "bg-dark", "top-0", "right-0", "w-full", "h-full", "pointer-events-none", "opacity-50");
+
+      line.appendChild(divElement);
+    })
+    console.log(allLines);
+  }, [])
 
   const logos = [
     {
@@ -98,15 +100,10 @@ export default function About() {
             }
           </div>
           <div className='md:w-col7 text-[calc(8000vw/1000)] md:text-[calc(4000vw/1000)]'>
-            {/* <SplittingParag /> */}
-            <p ref={splitRef} data-splitting>As a junior developer, I'm passioned about web development and all the cool stuff apps can do.
+            <p id='target' className='leading-snug'>As a junior developer, I'm passioned about web development and all the cool stuff apps can do.
             I am self-taught, and I try to learn a new thing everyday.
             I love traveling, cooking & eating, interactive websites, and sports.
             You won't believe the hours I've lost on Awwwards trying to crack the code behind those smooth animations.</p>
-            {/* <p>As a junior developer, I'm passioned about web development and all the cool stuff apps can do.</p>
-            <p>I am self-taught, and I try to learn a new thing everyday.</p>
-            <p>I love traveling, cooking & eating, interactive websites, and sports.</p>
-            <p>You won't believe the hours I've lost on Awwwards trying to crack the code behind those smooth animations.</p> */}
           </div>
         </div>
     </section>
