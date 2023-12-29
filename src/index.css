@@ -32,10 +32,11 @@ ul a > div > span:nth-child(2) > span {
 }
 
 /* WORK */
-.projects > li:nth-child(even) {
-  transform: translateY(40%);
-}
-/* WORK */
-.projects > li:nth-child(3) {
-  transform: translateY(10%);
+@media screen and (min-width: 768px) {
+  .projects > li:nth-child(even) {
+    transform: translateY(40%);
+  }
+  .projects > li:nth-child(3) {
+    transform: translateY(10%);
+  }
 }
