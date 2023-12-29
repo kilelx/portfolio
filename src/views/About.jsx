@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react'
 import Title from '../components/Title'
 import logo1 from '/assets/logo_1.png'
 import logo2 from '/assets/logo_2.png'
@@ -5,8 +6,23 @@ import logo3 from '/assets/logo_3.png'
 import logo4 from '/assets/logo_4.png'
 import logo5 from '/assets/logo_5.png'
 import logo6 from '/assets/logo_6.png'
+import Splitting from "splitting"
 
 export default function About() {
+
+  const [lines, setLines] = useState([])
+  const splitRef = useRef(null)
+
+  useEffect(() => {
+    if (splitRef) {
+      let splitRes = Splitting({
+        by: 'lines',
+      })
+
+      // Access to different lines
+      console.log(splitRes[0].lines);
+    }
+  }, [splitRef])
 
   const logos = [
     {
@@ -60,7 +76,7 @@ export default function About() {
         subtitle="Currently looking for a sanwdich course in creative development"
         negative={true}
         />
-        <div className="flex flex-col md:items-center md:flex-row md:justify-between">
+        <div className="flex flex-col md:items-center md:flex-row md:justify-between mt-32">
           <div className='relative w-full my-8 md:w-col6 h-[275px] md:h-[350px] md:order-2'>
             {
               logos.map((logo) => {
@@ -81,10 +97,16 @@ export default function About() {
               })
             }
           </div>
-          <div className='md:w-col7'>
-            <p>Blablabla self taught fond of creative developement pixel perfect animation blablaBlablabla self taught fond of creative developement pixel perfect animation blablaBlablabla self taught fond of creative developement pixel perfect animation blabla</p>
-            <br></br>
-            <p>Donec elementum eros semper sem consectetur, eu iaculis metus ultricies. Nullam vel neque placerat enim sodales euismod non quis urna. Aenean eget felis a quam dictum congue id quis ligula. Phasellus sodales ante egestas dolor feugiat, et iaculis orci cursus.</p>
+          <div className='md:w-col7 text-[calc(8000vw/1000)] md:text-[calc(4000vw/1000)]'>
+            {/* <SplittingParag /> */}
+            <p ref={splitRef} data-splitting>As a junior developer, I'm passioned about web development and all the cool stuff apps can do.
+            I am self-taught, and I try to learn a new thing everyday.
+            I love traveling, cooking & eating, interactive websites, and sports.
+            You won't believe the hours I've lost on Awwwards trying to crack the code behind those smooth animations.</p>
+            {/* <p>As a junior developer, I'm passioned about web development and all the cool stuff apps can do.</p>
+            <p>I am self-taught, and I try to learn a new thing everyday.</p>
+            <p>I love traveling, cooking & eating, interactive websites, and sports.</p>
+            <p>You won't believe the hours I've lost on Awwwards trying to crack the code behind those smooth animations.</p> */}
           </div>
         </div>
     </section>
