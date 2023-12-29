@@ -9,7 +9,7 @@ export default function App() {
     <>
     <Header />
     <main
-    className="overflow-x-hidden"
+    className="overflow-hidden"
     >
       <Hero />
       <About />
