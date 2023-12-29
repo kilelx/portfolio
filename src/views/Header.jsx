@@ -1,5 +1,4 @@
 import {useState, useRef, useEffect} from "react";
-import Splitting from "splitting";
 import gsap from "gsap";
 
 

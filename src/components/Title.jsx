@@ -1,7 +1,4 @@
-import React from 'react'
-
 export default function Title({content, negative, subtitle}) {
-    console.log(content);
   return (
     <>
       <h2

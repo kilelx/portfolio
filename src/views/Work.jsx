@@ -10,24 +10,24 @@ export default function Work() {
     {
       name: "iPod - 1’000 songs in your pocket",
       desc: "CSS-designed first Apple’s iPod, first creation for a Discord Contest.",
-      link: "",
-      img: {imgProjet1},
+      projectLink: "",
+      img: imgProjet1,
       stack: ["react", "sass"],
       id: 1
     },
     {
       name: "Galaxy generator",
       desc: "Galaxy generator made in ThreeJs, developed during the ThreeJS Journey.",
-      link: "",
-      img: {imgProjet2},
+      projectLink: "",
+      img: imgProjet2,
       stack: ["threejs"],
       id: 2
     },
     {
       name: "Metropolis",
       desc: "Animation challenge from the french Youtuber Benjamin Code.",
-      link: "",
-      img: {imgProjet3},
+      projectLink: "",
+      img: imgProjet3,
       stack: ["gsap", "sass"],
       id: 3
     },
@@ -39,7 +39,7 @@ export default function Work() {
         subtitle="A quick overview of some projects I've worked on!"
         negative={false}
         />
-        <div>
+        <div className="mt-12">
             <ul>
               {projects.map((project) => (
                 <Project

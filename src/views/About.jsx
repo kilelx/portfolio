@@ -1,4 +1,3 @@
-import {useState, useRef, useEffect} from 'react'
 import Title from '../components/Title'
 import logo1 from '/assets/logo_1.png'
 import logo2 from '/assets/logo_2.png'
@@ -8,8 +7,6 @@ import logo5 from '/assets/logo_5.png'
 import logo6 from '/assets/logo_6.png'
 
 export default function About() {
-
-  const imgContainerRef = useRef(null)
 
   const logos = [
     {
@@ -64,7 +61,7 @@ export default function About() {
         negative={true}
         />
         <div className="flex flex-col md:items-center md:flex-row md:justify-between">
-          <div ref={imgContainerRef} className='relative w-full my-8 md:w-col6 h-[275px] md:h-[350px] md:order-2'>
+          <div className='relative w-full my-8 md:w-col6 h-[275px] md:h-[350px] md:order-2'>
             {
               logos.map((logo) => {
                 return(
