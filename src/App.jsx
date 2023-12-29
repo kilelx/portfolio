@@ -2,6 +2,7 @@ import Header from "./views/Header";
 import About from "./views/About";
 import Hero from "./views/Hero";
 import Work from "./views/Work";
+import Contact from "./views/Contact";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Hero />
       <About />
       <Work />
+      <Contact />
     </main>
     </>
   )

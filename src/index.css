@@ -7,6 +7,10 @@
   @apply w-col12 mx-auto
 }
 
+a {
+  cursor: pointer;
+}
+
 /* NAVBAR */
 ul a > div > span {
   display: inline-block;
@@ -25,4 +29,13 @@ ul a > div > span:nth-child(2) > span {
   1px 1px 0 #CEA07E;
   will-change: font-variation-settings;
   font-variation-settings: "wght" 700;
+}
+
+/* WORK */
+.projects > li:nth-child(even) {
+  transform: translateY(40%);
+}
+/* WORK */
+.projects > li:nth-child(3) {
+  transform: translateY(10%);
 }

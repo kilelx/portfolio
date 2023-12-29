@@ -39,8 +39,9 @@ export default function Work() {
         subtitle="A quick overview of some projects I've worked on!"
         negative={false}
         />
-        <div className="mt-12">
-            <ul>
+        <div className="mt-12 md:mt-32">
+            <ul
+            className="projects md:px-[calc((100vw-60px)/18)] md:flex md:justify-between md:flex-wrap">
               {projects.map((project) => (
                 <Project
                   name={project.name}
@@ -48,7 +49,6 @@ export default function Work() {
                   link={project.link}
                   img={project.img}
                   stack={project.stack}
-                  id={project.id}
                   key={project.id}
                 />
               ))}
