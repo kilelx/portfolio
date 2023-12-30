@@ -13,7 +13,7 @@ export default function App() {
     {/* <> */}
     <Header />
     <main
-    className="overflow-hidden"
+    className="overflow-x-hidden"
     >
       <Hero />
       <About />

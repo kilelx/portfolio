@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 /* UTILS */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .section-container {
   @apply w-col12 mx-auto
 }
