@@ -1,10 +1,10 @@
-import react from '/assets/logo_1.png'
-import tailwind from '/assets/logo_2.png'
-import threejs from '/assets/logo_3.png'
-import typescript from '/assets/logo_4.png'
-import gsap from '/assets/logo_5.png'
-import github from '/assets/logo_6.png'
-import sass from '/assets/logo_7.png'
+import react from '/assets/logo_react.svg'
+import tailwind from '/assets/logo_tailwind.svg'
+import threejs from '/assets/logo_threejs.svg'
+import typescript from '/assets/logo_typescript.svg'
+import gsap from '/assets/logo_gsap.svg'
+import github from '/assets/logo_github.svg'
+import sass from '/assets/logo_sass.svg'
 
 export default function Project({name, desc, link, img, stack}) {
 

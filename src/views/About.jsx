@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import Title from '../components/Title'
-import logo1 from '/assets/logo_1.png'
-import logo2 from '/assets/logo_2.png'
-import logo3 from '/assets/logo_3.png'
-import logo4 from '/assets/logo_4.png'
-import logo5 from '/assets/logo_5.png'
-import logo6 from '/assets/logo_6.png'
+import reactLogo from '/assets/logo_react.svg'
+import tailwindLogo from '/assets/logo_tailwind.svg'
+import threejsLogo from '/assets/logo_threejs.svg'
+import typescriptLogo from '/assets/logo_typescript.svg'
+import gsapLogo from '/assets/logo_gsap.svg'
+import githubLogo from '/assets/logo_github.svg'
 import SplitType from 'split-type'
 import gsap from 'gsap'
 
@@ -41,42 +41,42 @@ export default function About() {
   const logos = [
     {
       name: "React",
-      src: logo1,
+      src: reactLogo,
       id: 1,
       top: 20,
       left: 15
     },
     {
       name: "Tailwind CSS",
-      src: logo2,
+      src: tailwindLogo,
       id: 2,
       top: 50,
       left: 85
     },
     {
       name: "ThreeJS",
-      src: logo3,
+      src: threejsLogo,
       id: 3,
       top: 70,
       left: 55
     },
     {
       name: "TypeScript",
-      src: logo4,
+      src: typescriptLogo,
       id: 4,
       top: 15,
       left: 62
     },
     {
       name: "GSAP",
-      src: logo5,
+      src: gsapLogo,
       id: 5,
       top: 40,
       left: 40
     },
     {
       name: "Github",
-      src: logo6,
+      src: githubLogo,
       id: 6,
       top: 60,
       left: 5
