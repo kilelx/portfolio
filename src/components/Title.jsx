@@ -14,9 +14,15 @@ export default function Title({content, negative, subtitle}) {
 
       let tl = gsap.timeline({paused: true});
 
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        tl.fromTo(lenisRef.current, {x: '-50px'}, {x: '-200%', ease: 'none'}, 0);
+      } else {
+        tl.fromTo(lenisRef.current, {x:0}, {x: '-60%', ease: 'none'}, 0);
+      }
+
       // console.log(lenisRef.current);
 
-      tl.fromTo(lenisRef.current, {x:0}, {x: '-60%', ease: 'none'}, 0);
+      // tl.fromTo(lenisRef.current, {x:0}, {x: '-60%', ease: 'none'}, 0);
       // tl.fromTo(lenisRef.current, {x:0}, {x: '-60%', ease: 'none'}, 0);
       // Mobile version
       // tl.fromTo(lenisRef.current, {x: '-50px'}, {x: '-200%', ease: 'none'}, 0);
