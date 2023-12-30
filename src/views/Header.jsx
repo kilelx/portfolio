@@ -1,4 +1,6 @@
 import {useState, useRef, useEffect} from "react";
+import githubLogo from "/assets/logo_github.svg"
+import linkedinLogo from "/assets/logo_linkedin.svg"
 import gsap from "gsap";
 
 
@@ -98,8 +100,12 @@ export default function Header() {
             </li>
           </ul>
           <div className="flex gap-[30px] mt-[20px] md:mt-0">
-            <p className="w-[30px] h-[30px] bg-red-500">GH</p>
-            <p className="w-[30px] h-[30px] bg-red-500">LK</p>
+            <a href="https://github.com/kilelx" target="_blank">
+              <img src={githubLogo} alt="Github logo" />
+            </a>
+            <a href="https://www.linkedin.com/in/kieran-leleux/" target="_blank">
+              <img src={linkedinLogo} alt="Linkedin logo" />
+            </a>
           </div>
         </nav>
       </div>

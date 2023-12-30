@@ -33,7 +33,7 @@ export default function Contact() {
         subtitle="Did I convince you? Not yet? Feel free if you want to discuss!"
         negative={false}
         />
-        <ul className='flex flex-col items-center gap-8 mt-10 mb-20 md:gap-10 md:row md:justify-center md:mt-32 md:mb-24'>
+        <ul className='flex flex-col items-center gap-8 mt-10 mb-20 md:gap-10 md:flex-row md:justify-center md:mt-32 md:mb-24'>
           {links.map(link => (
             <li
             key={link.name}>
