@@ -24,7 +24,7 @@ export default {
         intro: "calc(3500vw/1000)",
         "mob-mammoth": "calc(8000vw / 1000)",
         mammoth: "calc(5000vw/1000)",
-        "mob-title": "calc(25000vw/1000)",
+        "mob-title": "calc(4000vw/100)",
         title: "calc(18000vw/1000)",
       },
       rotate: {
