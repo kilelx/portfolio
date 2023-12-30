@@ -27,18 +27,21 @@ export default function Contact() {
     },
   ]
   return (
-    <footer>
+    <footer className='section-container'>
         <Title
         content="Contact"
         subtitle="Did I convince you? Not yet? Feel free if you want to discuss!"
         negative={false}
         />
-        <ul>
+        <ul className='flex flex-col items-center gap-8 mt-10 mb-20 md:gap-10 md:row md:justify-center md:mt-32 md:mb-24'>
           {links.map(link => (
-            <li>
+            <li
+            key={link.name}>
               <a
               href={link.link}
-              target='_blank'>
+              target='_blank'
+              className='flex items-center gap-[10px]'
+              >
                 <img src={link.img} alt={`${link.name} icon`} />
                 {link.text}
               </a>
@@ -47,7 +50,7 @@ export default function Contact() {
         </ul>
         <div className=" text-xs text-center">
           <p>Developed & designed with 💖 by Kieran L.</p>
-          <p className='mt-1'>&copy; 2024 Kieran LELEUX - All rights reserved</p>
+          <p className='mt-1 mb-3'>&copy; 2024 Kieran LELEUX - All rights reserved</p>
         </div>
     </footer>
   )
