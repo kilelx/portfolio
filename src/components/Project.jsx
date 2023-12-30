@@ -29,7 +29,7 @@ export default function Project({name, desc, link, img, stack}) {
                         key={logo}
                         src={logoMappings[logo]}
                         alt={logo}
-                        className='w-6 object-contain'
+                        className='object-contain'
                         />
                     ))}
                 </div>

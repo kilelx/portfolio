@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 /* UTILS */
+* {
+  scroll-behavior: smooth;
+}
 .section-container {
   @apply w-col12 mx-auto
 }
