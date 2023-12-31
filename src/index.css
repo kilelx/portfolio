@@ -3,8 +3,17 @@
 @tailwind utilities;
 
 /* UTILS */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .section-container {
   @apply w-col12 mx-auto
+}
+
+a {
+  cursor: pointer;
 }
 
 /* NAVBAR */
@@ -16,12 +25,7 @@ ul a > div > span:nth-child(2) > span {
 }
 
 /* HERO */
-h1:first-child {
-  font-size: calc(7000vw/1000);
-}
-
 .outlined-hero {
-  /* font-size: calc(5000vw/1000); */
   text-shadow:
   1px 1px 0 #CEA07E,
   -1px -1px 0 #CEA07E,
@@ -32,16 +36,12 @@ h1:first-child {
   font-variation-settings: "wght" 700;
 }
 
-br {
-  content: "";
-  display: block;
-  /* margin: calc(-4000vw/1000) 0; */
-}
-
-/* .developer {
-  font-size: calc(5000vw/1000);
-} */
-
-#root {
-  height: 500vh;
+/* WORK */
+@media screen and (min-width: 768px) {
+  .projects > li:nth-child(even) {
+    transform: translateY(40%);
+  }
+  .projects > li:nth-child(3) {
+    transform: translateY(10%);
+  }
 }

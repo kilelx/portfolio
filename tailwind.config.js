@@ -24,7 +24,7 @@ export default {
         intro: "calc(3500vw/1000)",
         "mob-mammoth": "calc(8000vw / 1000)",
         mammoth: "calc(5000vw/1000)",
-        "mob-title": "calc(25000vw/1000)",
+        "mob-title": "calc(4000vw/100)",
         title: "calc(18000vw/1000)",
       },
       rotate: {
@@ -42,7 +42,7 @@ export default {
         col9: "calc(9*(((100vw - 60px) - 3*20px) / 12 ))",
         col10: "calc(10*(((100vw - 60px) - 2*20px) / 12 ))",
         col11: "calc(11*(((100vw - 60px) - 1*20px) / 12 ))",
-        col12: "calc(100vw - 60px)",
+        col12: "calc(100vw - 60px)"
       },
       margin: {
         psh1: "calc((100vw - 60px - 11*20px) / 12 + 20px)",
