@@ -65,7 +65,7 @@ export default function Header() {
 
       <div className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:w-full mob:h-[90vh]" : "mob:hidden"}`}>
         <nav className="text-lg flex flex-col items-center md:justify-between">
-          <ul className="flex flex-col md:flex-row mob:gap-[30px] text-center md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2  md:-translate-y-1/2" ref={charsContainerRef}>
+          <ul className="flex flex-col text-xl md:text-base md:flex-row mob:gap-[30px] text-center md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2  md:-translate-y-1/2" ref={charsContainerRef}>
             <li>
               <a href="" className="inline-block p-4">
                 <div className="relative block overflow-hidden">
@@ -99,7 +99,7 @@ export default function Header() {
               </a>
             </li>
           </ul>
-          <div className="flex gap-[30px] mt-[20px] md:mt-0">
+          <div className="flex gap-[30px] mt-6 md:mt-0">
             <a href="https://github.com/kilelx" target="_blank">
               <img src={githubLogo} alt="Github logo" />
             </a>
