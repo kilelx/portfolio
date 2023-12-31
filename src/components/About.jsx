@@ -94,7 +94,7 @@ export default function About() {
         subtitle=""
         negative={true}
         />
-        <div className="flex section-container">
+        <div className="flex justify-between items-center section-container">
           <div className='w-col6'>
             <p>Blablabla self taught fond of creative developement pixel perfect animation blablaBlablabla self taught fond of creative developement pixel perfect animation blablaBlablabla self taught fond of creative developement pixel perfect animation blabla</p>
             <p>Donec elementum eros semper sem consectetur, eu iaculis metus ultricies. Nullam vel neque placerat enim sodales euismod non quis urna. Aenean eget felis a quam dictum congue id quis ligula. Phasellus sodales ante egestas dolor feugiat, et iaculis orci cursus.</p>
@@ -104,7 +104,7 @@ export default function About() {
             {
               logos.map((logo) => {
                 console.log(logo);
-              
+
                 return(
                   <img
                   src={logo.src}
