@@ -112,8 +112,13 @@ export default function Header() {
 
       <button
       onClick={() => setShowMenu(!showMenu)}
-      className={`${showMenu ? "bg-red-200" : "bg-blue-200"} absolute right-0 top-[26px] md:hidden`}
-      >Burger menu</button>
+      className={`${showMenu ? "" : ""} absolute right-0 top-[26px] md:hidden`}
+      >
+        {showMenu ? "X" : "O"}
+      </button>
     </header>
   );
 }
+
+
+// https://reactcommunity.org/react-transition-group/transition
