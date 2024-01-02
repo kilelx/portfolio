@@ -44,9 +44,9 @@ export default function About() {
     })
 
     const handleMouseMove = (e) => {
-      setMousePos({x: e.offsetX, y: e.offsetY});
-      console.log(mousePOs);
-    }
+      setMousePos({ x: e.clientX, y: e.clientY });
+    };
+
 
     // Hovering
     if(logosContainerRef.current) {
@@ -55,6 +55,17 @@ export default function About() {
     }
 
   }, [])
+
+  useEffect(() => {
+    tl.pause();
+    tl.to('.logo', {
+      top: 0,
+      left: 0,
+      x: mousePos.x,
+      y: mousePos.y
+    })
+    console.log(mousePos.x);
+  }, [mousePos])
 
   const logos = [
     {
@@ -100,15 +111,6 @@ export default function About() {
       left: 5
     },
   ]
-
-  function moveLogos(e) {
-    tl.pause();
-    console.log(e);
-    tl.to(".logo", {
-      top: e.offsetY + "px",
-      left: e.offsetX + "px"
-    })
-  }
 
   return (
     <section className='section-container'>
