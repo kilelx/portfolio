@@ -33,7 +33,7 @@ ul a > div > span:nth-child(2) > span {
   -1px 1px 0 #CEA07E,
   1px 1px 0 #CEA07E;
   will-change: font-variation-settings;
-  font-variation-settings: "wght" 700;
+  font-variation-settings: "wght" 200;
 }
 
 /* WORK */

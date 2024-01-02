@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Title from '../components/Title'
 import reactLogo from '/assets/logo_react.svg'
 import tailwindLogo from '/assets/logo_tailwind.svg'
@@ -11,8 +11,13 @@ import gsap from 'gsap'
 
 export default function About() {
 
+  const logosContainerRef = useRef(null);
+  const [mousePos, setMousePos] = useState({});
+  const tl = gsap.timeline();
+
   useEffect(() => {
 
+    // === Text animation ===
     // Split the lines
     const text = new SplitType('#target', { types: 'lines' });
 
@@ -27,8 +32,9 @@ export default function About() {
       line.appendChild(divElement);
     })
 
-    // Logo animation
-    gsap.to(".logo", {
+    // === Logos animation ===
+    // Floating
+    tl.to(".logo", {
       x: "random(-3, 3)",
       y: "random(-3, 3)",
       ease: 'none',
@@ -36,6 +42,18 @@ export default function About() {
       repeat: -1,
       repeatRefresh: true,
     })
+
+    const handleMouseMove = (e) => {
+      setMousePos({x: e.offsetX, y: e.offsetY});
+      console.log(mousePOs);
+    }
+
+    // Hovering
+    if(logosContainerRef.current) {
+      // Mouse hover
+      logosContainerRef.current.addEventListener("mousemove", (e) => handleMouseMove(e))
+    }
+
   }, [])
 
   const logos = [
@@ -83,6 +101,15 @@ export default function About() {
     },
   ]
 
+  function moveLogos(e) {
+    tl.pause();
+    console.log(e);
+    tl.to(".logo", {
+      top: e.offsetY + "px",
+      left: e.offsetX + "px"
+    })
+  }
+
   return (
     <section className='section-container'>
         <Title
@@ -91,7 +118,9 @@ export default function About() {
         negative={true}
         />
         <div className="flex flex-col md:items-start md:flex-row md:justify-between md:mt-32">
-          <div className='relative w-full my-8 h-[275px] md:w-col6 md:h-screen md:my-0 md:order-2'>
+          <div ref={logosContainerRef}
+          // onMouseMove={handleMouseMove}
+          className='relative w-full my-8 h-[275px] md:w-col6 md:h-screen md:my-0 md:order-2'>
             {
               logos.map((logo) => {
                 return(
