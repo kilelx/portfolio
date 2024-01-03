@@ -1,3 +1,5 @@
+// https://medium.com/@samuelafolabidev/create-engaging-mouse-move-effects-in-react-with-gsap-a-step-by-step-guide-fbff9b3acd22
+
 import { useState, useEffect, useRef } from 'react'
 import Title from '../components/Title'
 import reactLogo from '/assets/logo_react.svg'
@@ -12,8 +14,8 @@ import gsap from 'gsap'
 export default function About() {
 
   const logosContainerRef = useRef(null);
-  const [mousePos, setMousePos] = useState({});
-  const tl = gsap.timeline();
+  // const [mousePos, setMousePos] = useState({});
+  // const tl = gsap.timeline();
 
   useEffect(() => {
 
@@ -33,39 +35,41 @@ export default function About() {
     })
 
     // === Logos animation ===
-    // Floating
-    tl.to(".logo", {
-      x: "random(-3, 3)",
-      y: "random(-3, 3)",
-      ease: 'none',
-      duration: 1,
-      repeat: -1,
-      repeatRefresh: true,
-    })
+    // // Floating
+    // tl.to(".logo", {
+    //   x: "random(-3, 3)",
+    //   y: "random(-3, 3)",
+    //   ease: 'none',
+    //   duration: 1,
+    //   repeat: -1,
+    //   // repeatRefresh: true,
+    // })
 
-    const handleMouseMove = (e) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
+    // const handleMouseMove = (e) => {
+    //   setMousePos({ x: e.offsetX, y: e.offsetY });
+    // };
 
 
     // Hovering
     if(logosContainerRef.current) {
       // Mouse hover
-      logosContainerRef.current.addEventListener("mousemove", (e) => handleMouseMove(e))
+      logosContainerRef.current.addEventListener("mousemove", (e) => {
+        // handleMouseMove(e)
+        gsap.to(
+          '.logo', {
+            top: 0,
+            left: 0,
+            x: e.offsetX,
+            y: e.offsetY,
+            ease: "power1.out",
+            overwrite: "auto",
+            stagger: 0.02,
+          }
+        )
+      })
     }
 
   }, [])
-
-  useEffect(() => {
-    tl.pause();
-    tl.to('.logo', {
-      top: 0,
-      left: 0,
-      x: mousePos.x,
-      y: mousePos.y
-    })
-    console.log(mousePos.x);
-  }, [mousePos])
 
   const logos = [
     {
