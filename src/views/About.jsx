@@ -15,7 +15,7 @@ export default function About() {
 
   const logosContainerRef = useRef(null);
   // const [mousePos, setMousePos] = useState({});
-  // const tl = gsap.timeline();
+  const tl = gsap.timeline();
 
   useEffect(() => {
 
@@ -36,14 +36,14 @@ export default function About() {
 
     // === Logos animation ===
     // // Floating
-    // tl.to(".logo", {
-    //   x: "random(-3, 3)",
-    //   y: "random(-3, 3)",
-    //   ease: 'none',
-    //   duration: 1,
-    //   repeat: -1,
-    //   // repeatRefresh: true,
-    // })
+    tl.to(".logo", {
+      x: "random(-3, 3)",
+      y: "random(-3, 3)",
+      ease: 'none',
+      duration: 1,
+      repeat: -1,
+      repeatRefresh: true,
+    })
 
     // const handleMouseMove = (e) => {
     //   setMousePos({ x: e.offsetX, y: e.offsetY });
@@ -58,26 +58,30 @@ export default function About() {
       // Mouse hover
       logosContainerRef.current.addEventListener("mousemove", (e) => {
 
-        let mouseX = (Math.round(e.clientX - rect.left) * 100) / rect.width;
-        let mouseY = (Math.round(e.clientY - rect.top) * 100) / rect.height;
-        // clientY not working on scroll, because it's based on the viewport. look for a formula to calculate the top either from the top of the docs, or from the top of the section
+        tl.to('.logo', {
+          x: 0,
+          y: 0
+        });
+        tl.pause()
+
+        let mouseX = Math.floor((e.offsetX * 100) / rect.width);
+        let mouseY = Math.floor((e.offsetY * 100) / rect.height);
 
         gsap.to('.logo', {
             top: mouseY + '%',
             left: mouseX + '%',
-            // x: mouseX,
-            // y: mouseY,
             ease: "power1.out",
             overwrite: "auto",
             stagger: 0.02,
           }
         )
       })
-      logosContainerRef.current.addEventListener("mouseleave", (e) => {
 
+      logosContainerRef.current.addEventListener("mouseleave", (e) => {
+        tl.play();
         document.querySelectorAll('.logo').forEach((logo) => {
           gsap.to(logo, {
-            top: logos[logo.id - 1].top + '%',
+            top: Math.round(logos[logo.id - 1].top) + '%',
             left: logos[logo.id - 1].left + '%',
             delay: 1
           })
@@ -151,11 +155,12 @@ export default function About() {
                   alt={`Logo ${logo.name}`}
                   key={logo.id}
                   id={logo.id}
-                  className='logo absolute md:w-12 object-contain'
+                  className='logo absolute md:w-12 object-contain pointer-events-none'
                   style={
                     {
                       top: logo.top + "%",
-                      left: logo.left + "%"
+                      left: logo.left + "%",
+                      zIndex: logo.id
                     }
                   }
                   />
