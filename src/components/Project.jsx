@@ -20,24 +20,26 @@ export default function Project({name, desc, link, img, stack}) {
 
   return (
     <li className='md:w-col5'>
-        <img src={img} alt={name} className='w-full'></img>
-        <div className="mt-3 mb-20">
-            <div className="flex justify-between items-center">
-                <div className="flex gap-3">
-                    {stack.map((logo) => (
-                        <img
-                        key={logo}
-                        src={logoMappings[logo]}
-                        alt={logo}
-                        className='object-contain w-[20px] md:w-[30px]'
-                        />
-                    ))}
+        <a href={link} target='_blank'>
+            <img src={img} alt={name} className='w-full rounded'></img>
+            <div className="mt-3 mb-20">
+                <div className="flex justify-between items-center">
+                    <div className="flex gap-3">
+                        {stack.map((logo) => (
+                            <img
+                            key={logo}
+                            src={logoMappings[logo]}
+                            alt={logo}
+                            className='object-contain w-[20px] md:w-[30px]'
+                            />
+                            ))}
+                    </div>
+                    <p className='text-sm'>View the project</p>
                 </div>
-                <a href={link} className='text-sm'>View the project</a>
+                <h3 className="text-lg mt-3 mb-2 font-semibold">{name}</h3>
+                <p className='text-sm'>{desc}</p>
             </div>
-            <h3 className="text-lg mt-3 mb-2 font-semibold">{name}</h3>
-            <p className='text-sm'>{desc}</p>
-        </div>
+        </a>
     </li>
   )
 }

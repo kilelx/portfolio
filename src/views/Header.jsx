@@ -56,6 +56,10 @@ export default function Header() {
 
   }, []);
 
+  const handleClick = (anchor) => {
+    lenis.scrollTo(anchor);
+  }
+
 
   return (
     <header className="font-playfair section-container py-[25px] relative md:flex md:justify-between">
@@ -75,7 +79,8 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="" className="inline-block p-4">
+              <a href="#about" onClick="lenis.scrollTo(anchor)" className="inline-block p-4">
+              {/* <a href="#about" onClick={() => handleClick('#about')} className="inline-block p-4"> */}
                 <div className="relative block overflow-hidden">
                   <span className="opacity-50">About</span>
                   <span className="absolute top-0 left-0">About</span>
@@ -83,7 +88,7 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="" className="inline-block p-4">
+              <a href="#projects" className="inline-block p-4">
                 <div className="relative block overflow-hidden">
                   <span className="opacity-50">Projects</span>
                   <span className="absolute top-0 left-0">Projects</span>
@@ -91,7 +96,7 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="" className="inline-block p-4">
+              <a href="#contact" className="inline-block p-4">
                 <div className="relative block overflow-hidden">
                   <span className="opacity-50">Contact</span>
                   <span className="absolute top-0 left-0">Contact</span>

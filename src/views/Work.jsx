@@ -10,30 +10,30 @@ export default function Work() {
     {
       name: "iPod - 1’000 songs in your pocket",
       desc: "CSS-designed first Apple’s iPod, first creation for a Discord Contest.",
-      projectLink: "",
+      link: "https://kilelx.github.io/ipod/",
       img: imgProjet1,
       stack: ["react", "sass"],
       id: 1
     },
     {
       name: "Galaxy generator",
-      desc: "Galaxy generator made in ThreeJs, developed during the ThreeJS Journey.",
-      projectLink: "",
+      desc: "Galaxy generator made in ThreeJS, developed during the ThreeJS Journey.",
+      link: "https://galaxy-generator-o9dfyt7q8-kilelx.vercel.app/",
       img: imgProjet2,
       stack: ["threejs"],
       id: 2
     },
     {
-      name: "Metropolis",
-      desc: "Animation challenge from the french Youtuber Benjamin Code.",
-      projectLink: "",
+      name: "Haunted house",
+      desc: "Haunted house made in ThreeJS, developed during the ThreeJS Journey.",
+      link: "https://haunted-house-dun-six.vercel.app/",
       img: imgProjet3,
-      stack: ["gsap", "sass"],
+      stack: ["threejs"],
       id: 3
     },
   ]
   return (
-    <section className="section-container">
+    <section id="projects" className="section-container">
         <Title
         content="Selected works"
         subtitle="A quick overview of some projects I've worked on!"

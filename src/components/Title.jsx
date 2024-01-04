@@ -22,7 +22,7 @@ export default function Title({content, negative, subtitle}) {
 
       const scrollTitle = ScrollTrigger.create({
         animation: tl,
-        trigger: lenisRef.current,
+        trigger: lenisRef.curresnt,
         start: 'top bottom',
         end: 'bottom top',
         scrub: 0.5

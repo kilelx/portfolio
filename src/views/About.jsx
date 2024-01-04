@@ -39,7 +39,7 @@ export default function About() {
           scrollTrigger: {
             trigger: line,
             start: 'top center',
-            end: 'bottom center',
+            end: 'bottom 48%',
             scrub: true,
           },
           width: '100%'
@@ -62,12 +62,14 @@ export default function About() {
     if(logosContainerRef.current) {
 
       // Fixed position or not
-      let st = ScrollTrigger.create({
-        trigger: lenisRef.current,
-        start: "top top",
-        end: "bottom bottom",
-        pin: logosContainerRef.current,
-      });
+      if (window.matchMedia("(min-width: 768px)").matches) {
+        let fixedST = ScrollTrigger.create({
+          trigger: lenisRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          pin: logosContainerRef.current,
+        });
+      }
 
       // Hovering section
       const rect = logosContainerRef.current.getBoundingClientRect();
@@ -84,7 +86,7 @@ export default function About() {
             left: mouseX + '%',
             ease: "power1.out",
             overwrite: "auto",
-            stagger: 0.02,
+            stagger: 0.03,
           }
         )
       })
@@ -99,7 +101,7 @@ export default function About() {
           gsap.to(logo, {
             top: Math.round(logos[logo.id - 1].top) + '%',
             left: logos[logo.id - 1].left + '%',
-            delay: 1
+            delay: 1,
           })
         })
 
@@ -127,8 +129,8 @@ export default function About() {
       name: "ThreeJS",
       src: threejsLogo,
       id: 3,
-      top: 70,
-      left: 55
+      top: 85,
+      left: 65
     },
     {
       name: "TypeScript",
@@ -141,20 +143,20 @@ export default function About() {
       name: "GSAP",
       src: gsapLogo,
       id: 5,
-      top: 40,
-      left: 40
+      top: 45,
+      left: 45
     },
     {
       name: "Github",
       src: githubLogo,
       id: 6,
-      top: 60,
-      left: 5
+      top: 65,
+      left: 15
     },
   ]
 
   return (
-    <section className='section-container'>
+    <section className='section-container' id='about'>
         <Title
         content="About"
         subtitle="Currently looking for a sanwdich course in creative development"

@@ -27,7 +27,7 @@ export default function Contact() {
     },
   ]
   return (
-    <footer className='section-container'>
+    <footer id='contact' className='section-container'>
         <Title
         content="Contact"
         subtitle="Did I convince you? Not yet? Feel free if you want to discuss!"
