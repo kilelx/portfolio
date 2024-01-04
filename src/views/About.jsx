@@ -52,15 +52,24 @@ export default function About() {
 
     // Hovering
     if(logosContainerRef.current) {
+
+      const containerWidth = logosContainerRef.current.getBoundingClientRect();
+
       // Mouse hover
       logosContainerRef.current.addEventListener("mousemove", (e) => {
+
+        let mouseX = Math.round(e.clientX - containerWidth.left);
+        let mouseY = Math.round(e.clientY - containerWidth.top);
+        // clientY not working on scroll, because it's based on the viewport. look for a formula to calculate the top either from the top of the docs, or from the top of the section
+
+        console.log(e.currentTarget);
         // handleMouseMove(e)
         gsap.to(
           '.logo', {
             top: 0,
             left: 0,
-            x: e.offsetX,
-            y: e.offsetY,
+            x: mouseX,
+            y: e.currentTarget.offsetY,
             ease: "power1.out",
             overwrite: "auto",
             stagger: 0.02,
