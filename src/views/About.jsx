@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import Title from '../components/Title'
 import reactLogo from '/assets/logo_react.svg'
 import tailwindLogo from '/assets/logo_tailwind.svg'
@@ -7,33 +7,49 @@ import typescriptLogo from '/assets/logo_typescript.svg'
 import gsapLogo from '/assets/logo_gsap.svg'
 import githubLogo from '/assets/logo_github.svg'
 import SplitType from 'split-type'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import gsap from 'gsap'
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function About() {
 
   const logosContainerRef = useRef(null);
-  const tl = gsap.timeline();
+  const lenisRef = useRef(null)
+  const linesTl = gsap.timeline({paused: true, markers: true});
+  const logoTl = gsap.timeline();
 
   useEffect(() => {
 
     // === Text animation ===
-    // Split the lines
-    const text = new SplitType('#target', { types: 'lines' });
+    if(lenisRef) {
+          // Split the lines
+      const text = new SplitType('#target', { types: 'lines' });
 
-    // Lier la width au scroll, la faire descendre à zéro
+      // Lier la width au scroll, la faire descendre à zéro
+      const allLines = document.querySelectorAll(".line");
+      allLines.forEach((line) => {
+        line.classList.add("relative")
+        const divElement = document.createElement("div");
+        divElement.classList.add("overlay", "absolute", "bg-dark", "top-0", "right-0", "w-0", "h-full", "pointer-events-none", "opacity-75");
 
-    const allLines = document.querySelectorAll(".line");
-    allLines.forEach((line) => {
-      line.classList.add("relative")
-      const divElement = document.createElement("div");
-      divElement.classList.add("absolute", "bg-dark", "top-0", "right-0", "w-full", "h-full", "pointer-events-none", "opacity-50");
+        line.appendChild(divElement);
 
-      line.appendChild(divElement);
-    })
+        gsap.from(divElement, {
+          scrollTrigger: {
+            trigger: line,
+            start: 'top center',
+            end: 'bottom center',
+            scrub: true,
+          },
+          width: '100%'
+        })
+      });
+    }
 
     // === Logos animation ===
     // // Floating
-    tl.to(".logo", {
+    logoTl.to(".logo", {
       x: "random(-3, 3)",
       y: "random(-3, 3)",
       ease: 'none',
@@ -50,11 +66,11 @@ export default function About() {
       // Mouse hover
       logosContainerRef.current.addEventListener("mousemove", (e) => {
 
-        tl.to('.logo', {
-          x: 0,
-          y: 0
-        });
-        tl.pause()
+        // logoTl.to('.logo', {
+        //   x: 0,
+        //   y: 0
+        // });
+        // logoTl.pause()
 
         let mouseX = Math.floor((e.offsetX * 100) / rect.width);
         let mouseY = Math.floor((e.offsetY * 100) / rect.height);
@@ -70,7 +86,7 @@ export default function About() {
       })
 
       logosContainerRef.current.addEventListener("mouseleave", (e) => {
-        tl.play();
+        logoTl.play();
         document.querySelectorAll('.logo').forEach((logo) => {
           gsap.to(logo, {
             top: Math.round(logos[logo.id - 1].top) + '%',
@@ -136,8 +152,11 @@ export default function About() {
         subtitle="Currently looking for a sanwdich course in creative development"
         negative={true}
         />
-        <div className="flex flex-col md:items-start md:flex-row md:justify-between md:mt-32">
-          <div ref={logosContainerRef}
+        <div
+        ref={lenisRef}
+        className="flex flex-col md:items-start md:flex-row md:justify-between md:mt-32">
+          <div
+          ref={logosContainerRef}
           className='relative w-full my-8 h-[275px] md:w-col6 md:h-screen md:my-0 md:order-2'>
             {
               logos.map((logo) => {

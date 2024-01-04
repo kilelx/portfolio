@@ -22,7 +22,7 @@ export default function Project({name, desc, link, img, stack}) {
     <li className='md:w-col5'>
         <img src={img} alt={name} className='w-full'></img>
         <div className="mt-3 mb-20">
-            <div className="flex justify-between">
+            <div className="flex justify-between items-center">
                 <div className="flex gap-3">
                     {stack.map((logo) => (
                         <img

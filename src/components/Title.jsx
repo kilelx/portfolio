@@ -18,15 +18,7 @@ export default function Title({content, negative, subtitle}) {
         negative ? tl.fromTo(lenisRef.current, {x: '-50px'}, {x: '-200%', ease: 'none'}, 0) : tl.fromTo(lenisRef.current, {x: '-200%'}, {x: '-50px', ease: 'none'}, 0)
       } else {
         negative ? tl.fromTo(lenisRef.current, {x:0}, {x: '-60%', ease: 'none'}, 0) : tl.fromTo(lenisRef.current, {x:'-60%'}, {x: '0', ease: 'none'}, 0)
-        // tl.fromTo(lenisRef.current, {x:0}, {x: '-60%', ease: 'none'}, 0);
       }
-
-      // console.log(lenisRef.current);
-
-      // tl.fromTo(lenisRef.current, {x:0}, {x: '-60%', ease: 'none'}, 0);
-      // tl.fromTo(lenisRef.current, {x:0}, {x: '-60%', ease: 'none'}, 0);
-      // Mobile version
-      // tl.fromTo(lenisRef.current, {x: '-50px'}, {x: '-200%', ease: 'none'}, 0);
 
       const scrollTitle = ScrollTrigger.create({
         animation: tl,
