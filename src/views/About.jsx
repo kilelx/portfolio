@@ -62,14 +62,12 @@ export default function About() {
     if(logosContainerRef.current) {
 
       // Fixed position or not
-      // gsap.from(logosContainerRef.current, {
-      //   scrollTrigger: {
-      //     trigger: lenisRef.current,
-      //     start: "top top",
-      //     end: "bottom bottom",
-      //   },
-      //   position: 'relative'
-      // })
+      let st = ScrollTrigger.create({
+        trigger: lenisRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        pin: logosContainerRef.current,
+      });
 
       // Hovering section
       const rect = logosContainerRef.current.getBoundingClientRect();
@@ -167,7 +165,7 @@ export default function About() {
         className="flex flex-col md:items-start md:flex-row md:justify-between md:mt-32">
           <div
           ref={logosContainerRef}
-          className='sticky w-full my-8 h-[275px] md:w-col6 md:h-screen md:my-0 md:order-2'>
+          className='relative w-full my-8 h-[275px] md:w-col6 md:h-screen md:my-0 md:order-2'>
             {
               logos.map((logo) => {
                 return(
