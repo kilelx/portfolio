@@ -53,28 +53,36 @@ export default function About() {
     // Hovering
     if(logosContainerRef.current) {
 
-      const containerWidth = logosContainerRef.current.getBoundingClientRect();
+      const rect = logosContainerRef.current.getBoundingClientRect();
 
       // Mouse hover
       logosContainerRef.current.addEventListener("mousemove", (e) => {
 
-        let mouseX = Math.round(e.clientX - containerWidth.left);
-        let mouseY = Math.round(e.clientY - containerWidth.top);
+        let mouseX = (Math.round(e.clientX - rect.left) * 100) / rect.width;
+        let mouseY = (Math.round(e.clientY - rect.top) * 100) / rect.height;
         // clientY not working on scroll, because it's based on the viewport. look for a formula to calculate the top either from the top of the docs, or from the top of the section
 
-        console.log(e.currentTarget);
-        // handleMouseMove(e)
-        gsap.to(
-          '.logo', {
-            top: 0,
-            left: 0,
-            x: mouseX,
-            y: e.currentTarget.offsetY,
+        gsap.to('.logo', {
+            top: mouseY + '%',
+            left: mouseX + '%',
+            // x: mouseX,
+            // y: mouseY,
             ease: "power1.out",
             overwrite: "auto",
             stagger: 0.02,
           }
         )
+      })
+      logosContainerRef.current.addEventListener("mouseleave", (e) => {
+
+        document.querySelectorAll('.logo').forEach((logo) => {
+          gsap.to(logo, {
+            top: logos[logo.id - 1].top + '%',
+            left: logos[logo.id - 1].left + '%',
+            delay: 1
+          })
+        })
+
       })
     }
 
@@ -134,7 +142,6 @@ export default function About() {
         />
         <div className="flex flex-col md:items-start md:flex-row md:justify-between md:mt-32">
           <div ref={logosContainerRef}
-          // onMouseMove={handleMouseMove}
           className='relative w-full my-8 h-[275px] md:w-col6 md:h-screen md:my-0 md:order-2'>
             {
               logos.map((logo) => {
@@ -143,6 +150,7 @@ export default function About() {
                   src={logo.src}
                   alt={`Logo ${logo.name}`}
                   key={logo.id}
+                  id={logo.id}
                   className='logo absolute md:w-12 object-contain'
                   style={
                     {
