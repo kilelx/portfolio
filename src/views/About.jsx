@@ -16,14 +16,14 @@ export default function About() {
 
   const logosContainerRef = useRef(null);
   const lenisRef = useRef(null)
-  const linesTl = gsap.timeline({paused: true, markers: true});
   const logoTl = gsap.timeline();
 
   useEffect(() => {
 
     // === Text animation ===
     if(lenisRef) {
-          // Split the lines
+
+      // Split the lines
       const text = new SplitType('#target', { types: 'lines' });
 
       // Lier la width au scroll, la faire descendre à zéro
@@ -58,20 +58,26 @@ export default function About() {
       repeatRefresh: true,
     })
 
-    // Hovering
+    // Logo section
     if(logosContainerRef.current) {
 
+      // Fixed position or not
+      // gsap.from(logosContainerRef.current, {
+      //   scrollTrigger: {
+      //     trigger: lenisRef.current,
+      //     start: "top top",
+      //     end: "bottom bottom",
+      //   },
+      //   position: 'relative'
+      // })
+
+      // Hovering section
       const rect = logosContainerRef.current.getBoundingClientRect();
 
       // Mouse hover
       logosContainerRef.current.addEventListener("mousemove", (e) => {
 
-        // logoTl.to('.logo', {
-        //   x: 0,
-        //   y: 0
-        // });
-        // logoTl.pause()
-
+        // Calculate the mouse position in percentage
         let mouseX = Math.floor((e.offsetX * 100) / rect.width);
         let mouseY = Math.floor((e.offsetY * 100) / rect.height);
 
@@ -85,8 +91,12 @@ export default function About() {
         )
       })
 
+      // When the mouse leave the hover, reset the positon
       logosContainerRef.current.addEventListener("mouseleave", (e) => {
+        // Enable floating effect
         logoTl.play();
+
+        // For each logo, get the default positions
         document.querySelectorAll('.logo').forEach((logo) => {
           gsap.to(logo, {
             top: Math.round(logos[logo.id - 1].top) + '%',
@@ -157,7 +167,7 @@ export default function About() {
         className="flex flex-col md:items-start md:flex-row md:justify-between md:mt-32">
           <div
           ref={logosContainerRef}
-          className='relative w-full my-8 h-[275px] md:w-col6 md:h-screen md:my-0 md:order-2'>
+          className='sticky w-full my-8 h-[275px] md:w-col6 md:h-screen md:my-0 md:order-2'>
             {
               logos.map((logo) => {
                 return(
