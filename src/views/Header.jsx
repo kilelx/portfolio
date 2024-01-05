@@ -9,6 +9,7 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   const charsContainerRef = useRef(null);
+  const headerRef = useRef(null);
 
   useEffect(() => {
 
@@ -56,13 +57,17 @@ export default function Header() {
 
   }, []);
 
+  useEffect(() => {
+    showMenu ? headerRef.current.style.overflow = "hidden" : headerRef.current.style.overflow = "visible"
+  }, [showMenu])
+
   const handleClick = (anchor) => {
     lenis.scrollTo(anchor);
   }
 
 
   return (
-    <header className="font-playfair section-container py-[25px] relative md:flex md:justify-between">
+    <header ref={headerRef} className="font-playfair section-container h-full py-[25px] relative md:flex md:justify-between">
       <div className="font-semibold text-xl">
         <a href="#hero_section">Kieran LELEUX</a>
       </div>
