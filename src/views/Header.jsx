@@ -1,4 +1,5 @@
 import {useState, useRef, useEffect} from "react";
+import { useLenis } from '@studio-freight/react-lenis'
 import githubLogo from "/assets/logo_github.svg"
 import linkedinLogo from "/assets/logo_linkedin.svg"
 import gsap from "gsap";
@@ -9,7 +10,6 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   const charsContainerRef = useRef(null);
-  const headerRef = useRef(null);
 
   useEffect(() => {
 
@@ -58,16 +58,17 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    showMenu ? headerRef.current.style.overflow = "hidden" : headerRef.current.style.overflow = "visible"
+    showMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible"
   }, [showMenu])
 
-  const handleClick = (anchor) => {
-    lenis.scrollTo(anchor);
+  const handleClick = () => {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      setShowMenu(!showMenu);
+    }
   }
 
-
   return (
-    <header ref={headerRef} className="font-playfair section-container h-full py-[25px] relative md:flex md:justify-between">
+    <header className="font-playfair section-container h-full py-[25px] relative md:flex md:justify-between">
       <div className="font-semibold text-xl">
         <a href="#hero_section">Kieran LELEUX</a>
       </div>
@@ -84,7 +85,10 @@ export default function Header() {
               </a>
             </li>
             <li>
-              <a href="#about" onClick="lenis.scrollTo(anchor)" className="inline-block p-4">
+              <a
+              href="#about"
+              onClick={handleClick}
+              className="inline-block p-4">
               {/* <a href="#about" onClick={() => handleClick('#about')} className="inline-block p-4"> */}
                 <div className="relative block overflow-hidden">
                   <span className="opacity-50">About</span>
