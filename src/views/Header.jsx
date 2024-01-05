@@ -9,6 +9,7 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   const charsContainerRef = useRef(null);
+  const menuRef = useRef(null);
 
   useEffect(() => {
 
@@ -60,6 +61,15 @@ export default function Header() {
     showMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible"
   }, [showMenu])
 
+  // const handleToggleMenu = () => {
+  //   setShowMenu(!showMenu);
+  //   // if(showMenu && menuRef) {
+  //   //   menuRef.current.style.display = "flex";
+  //   // } else {
+  //   //   menuRef.current.style.display = "hidden";
+  //   // }
+  // }
+
   const handleClick = () => {
     if (window.matchMedia("(max-width: 767px)").matches) {
       setShowMenu(!showMenu);
@@ -72,7 +82,9 @@ export default function Header() {
         <a href="#hero_section">Kieran LELEUX</a>
       </div>
 
-      <div className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:w-full mob:h-[90vh]" : "mob:hidden"}`}>
+      <div
+      ref={menuRef}
+      className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:h-[90vh]" : "mob:hidden"}`}>
         <nav className="text-lg flex flex-col items-center md:justify-between">
           <ul className="flex flex-col text-xl md:text-base md:flex-row mob:gap-[30px] text-center md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2  md:-translate-y-1/2" ref={charsContainerRef}>
             <li>
@@ -132,6 +144,7 @@ export default function Header() {
       </div>
 
       <button
+      // onClick={handleToggleMenu}
       onClick={() => setShowMenu(!showMenu)}
       className={`${showMenu ? "" : ""} absolute right-0 top-[26px] md:hidden`}
       >
