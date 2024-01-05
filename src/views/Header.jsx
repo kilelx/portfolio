@@ -1,5 +1,4 @@
 import {useState, useRef, useEffect} from "react";
-import { useLenis } from '@studio-freight/react-lenis'
 import githubLogo from "/assets/logo_github.svg"
 import linkedinLogo from "/assets/logo_linkedin.svg"
 import gsap from "gsap";
@@ -77,9 +76,12 @@ export default function Header() {
         <nav className="text-lg flex flex-col items-center md:justify-between">
           <ul className="flex flex-col text-xl md:text-base md:flex-row mob:gap-[30px] text-center md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2  md:-translate-y-1/2" ref={charsContainerRef}>
             <li>
-              <a href="" className="inline-block p-4">
+              <a
+              href="home"
+              onClick={handleClick}
+              className="inline-block p-4">
                 <div className="relative block overflow-hidden">
-                  <span className="opacity-50">Home</span>
+                  <span className="md:opacity-50">Home</span>
                   <span className="absolute top-0 left-0">Home</span>
                 </div>
               </a>
@@ -89,25 +91,30 @@ export default function Header() {
               href="#about"
               onClick={handleClick}
               className="inline-block p-4">
-              {/* <a href="#about" onClick={() => handleClick('#about')} className="inline-block p-4"> */}
                 <div className="relative block overflow-hidden">
-                  <span className="opacity-50">About</span>
+                  <span className="md:opacity-50">About</span>
                   <span className="absolute top-0 left-0">About</span>
                 </div>
               </a>
             </li>
             <li>
-              <a href="#projects" className="inline-block p-4">
+              <a
+              href="#projects"
+              onClick={handleClick}
+              className="inline-block p-4">
                 <div className="relative block overflow-hidden">
-                  <span className="opacity-50">Projects</span>
+                  <span className="md:opacity-50">Projects</span>
                   <span className="absolute top-0 left-0">Projects</span>
                 </div>
               </a>
             </li>
             <li>
-              <a href="#contact" className="inline-block p-4">
+              <a
+              href="#contact"
+              onClick={handleClick}
+              className="inline-block p-4">
                 <div className="relative block overflow-hidden">
-                  <span className="opacity-50">Contact</span>
+                  <span className="md:opacity-50">Contact</span>
                   <span className="absolute top-0 left-0">Contact</span>
                 </div>
               </a>
