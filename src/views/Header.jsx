@@ -66,6 +66,30 @@ export default function Header() {
     showMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible";
     headerHeight = headerRef.current.getBoundingClientRect().height;
 
+    // if(showMenu) {
+    //   console.log(showMenu);
+    //   // tlMenu
+    //   tlMenu.to(menuRef.current, {
+    //     display: "flex",
+    //     height: `calc(100vh - ${headerHeight}px)`,
+    //     duration: 0
+    //   })
+    //   .to(menuRef.current, {
+    //     "--clip": "150%",
+    //     duration: 0.5
+    //   })
+    // } else if(!showMenu) {
+    //   tlMenu.to(menuRef.current, {
+    //     "--clip": "0%",
+    //     duration: 0.5
+    //   })
+    //   .to(menuRef.current, {
+    //     height: `fit-content`,
+    //     display: 'none',
+    //     duration: 0,
+    //     delay: .5
+    //   })
+    // }
     if(showMenu) {
       console.log(showMenu);
       // tlMenu
@@ -76,19 +100,29 @@ export default function Header() {
       })
       gsap.to(menuRef.current, {
         "--clip": "150%",
-        duration: 1,
+        duration: .5,
       })
+
+      // const links = document.querySelectorAll(`${menuRef.currentTarget} a`);
+      // console.log(links);
+
+      // gsap.to(links, {
+      //   opacity: 1,
+      //   stagger: 0.05,
+      //   delay: 0.25
+      // })
+
     } else if(!showMenu) {
       gsap
       .to(menuRef.current, {
         "--clip": "0%",
-        duration: 1
+        duration: .5,
       })
       gsap.to(menuRef.current, {
         height: `fit-content`,
         display: 'none',
         duration: 0,
-        delay: 1
+        delay: .5
       })
     }
   }, [showMenu])
