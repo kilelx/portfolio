@@ -10,6 +10,10 @@ export default function Header() {
 
   const charsContainerRef = useRef(null);
   const menuRef = useRef(null);
+  const headerRef = useRef(null);
+  const tlMenu = gsap.timeline();
+
+  let headerHeight;
 
   useEffect(() => {
 
@@ -37,8 +41,8 @@ export default function Header() {
 
         const [chars, chars2] = words;
 
-        const tl = gsap.timeline({duration: .04, paused: true});
-        tl
+        const tlLinks = gsap.timeline({duration: .04, paused: true});
+        tlLinks
           .to(chars, {
             stagger: 0.025,
             y: "-100%",
@@ -50,8 +54,8 @@ export default function Header() {
             opacity: 1
           }, "<");
 
-        link.addEventListener("mouseenter", () => tl.play());
-        link.addEventListener("mouseleave", () => tl.reverse());
+        link.addEventListener("mouseenter", () => tlLinks.play());
+        link.addEventListener("mouseleave", () => tlLinks.reverse());
       });
     }
 
@@ -59,7 +63,30 @@ export default function Header() {
 
   // disable scroll when menu is open
   useEffect(() => {
-    showMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible"
+    showMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible";
+    headerHeight = headerRef.current.getBoundingClientRect().height;
+
+    if(showMenu) {
+      tlMenu
+      .to(menuRef.current, {
+        height: `calc(100vh - ${headerHeight}px)`,
+        duration: 0
+      })
+      .to('.clip-path', {
+        "--clip": "150%",
+        duration: 1
+      })
+    } else {
+      tlMenu
+      .to(menuRef.current, {
+        height: `fit-content`,
+        duration: 0
+      })
+      .to('.clip-path', {
+        "--clip": "0%",
+        duration: 1
+      })
+    }
   }, [showMenu])
 
   const handleClick = () => {
@@ -69,14 +96,18 @@ export default function Header() {
   }
 
   return (
-    <header className="font-playfair section-container h-full py-[25px] relative md:flex md:justify-between">
+    <header
+    ref={headerRef}
+    className="header font-playfair section-container h-fit py-[25px] relative md:flex md:justify-between">
       <div className="font-semibold text-xl">
         <a href="#hero_section">Kieran LELEUX</a>
       </div>
-
+      {/* mob:h-[calc(100vh - ${headerHeight}px)] */}
       <div
       ref={menuRef}
-      className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:h-[90vh]" : "mob:hidden"}`}>
+      className={`${showMenu ? `clip-path mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center` : "mob:hidden"}`}>
+      {/* className={`${showMenu ? `clip-path mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center` : "mob:hidden"}`}> */}
+      {/* className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:h-[90vh]" : "mob:hidden"}`}> */}
         <nav className="text-lg flex flex-col items-center md:justify-between">
           <ul className="flex flex-col text-xl md:text-base md:flex-row mob:gap-[30px] text-center md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2  md:-translate-y-1/2" ref={charsContainerRef}>
             <li>

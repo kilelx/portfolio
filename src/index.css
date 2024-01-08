@@ -24,6 +24,16 @@ html.lenis {
 }
 
 /* UTILS */
+@layer utilities {
+  .section-container {
+    @apply w-col12 mx-auto
+  }
+
+  .clip-path {
+    --clip: 0%;
+    clip-path: circle(var(--clip) at 100% 0);
+  }
+}
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -31,10 +41,6 @@ html.lenis {
 
 *::selection {
   background-color: #CEA07E;
-}
-
-.section-container {
-  @apply w-col12 mx-auto
 }
 
 a {
@@ -56,23 +62,6 @@ a {
   transform: translateX(100%);
   transition: transform .2s;
 }
-/*
-.mouse--animation {
-  transform: translateY(65%) scale(0.15);
-  &-enter {
-      opacity: 0;
-      &-active {
-          opacity: 1;
-          transition: opacity .2s ease-in-out;
-      }
-  }
-  &-exit {
-      opacity: 1;
-      &-active {
-          opacity: 0;
-          transition: opacity .2s ease-in-out;
-      }
-  } */
 
 /* NAVBAR */
 ul a > div > span {
