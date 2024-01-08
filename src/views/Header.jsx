@@ -57,18 +57,10 @@ export default function Header() {
 
   }, []);
 
+  // disable scroll when menu is open
   useEffect(() => {
     showMenu ? document.body.style.overflow = "hidden" : document.body.style.overflow = "visible"
   }, [showMenu])
-
-  // const handleToggleMenu = () => {
-  //   setShowMenu(!showMenu);
-  //   // if(showMenu && menuRef) {
-  //   //   menuRef.current.style.display = "flex";
-  //   // } else {
-  //   //   menuRef.current.style.display = "hidden";
-  //   // }
-  // }
 
   const handleClick = () => {
     if (window.matchMedia("(max-width: 767px)").matches) {
