@@ -67,8 +67,10 @@ export default function Header() {
     headerHeight = headerRef.current.getBoundingClientRect().height;
 
     if(showMenu) {
+      console.log(showMenu);
       tlMenu
       .to(menuRef.current, {
+        display: "flex",
         height: `calc(100vh - ${headerHeight}px)`,
         duration: 0
       })
@@ -76,15 +78,16 @@ export default function Header() {
         "--clip": "150%",
         duration: 1
       })
-    } else {
+    } else if(!showMenu) {
       tlMenu
-      .to(menuRef.current, {
-        height: `fit-content`,
-        duration: 0
-      })
       .to('.clip-path', {
         "--clip": "0%",
         duration: 1
+      })
+      .to(menuRef.current, {
+        height: `fit-content`,
+        display: 'none',
+        duration: 0
       })
     }
   }, [showMenu])
@@ -105,7 +108,8 @@ export default function Header() {
       {/* mob:h-[calc(100vh - ${headerHeight}px)] */}
       <div
       ref={menuRef}
-      className={`${showMenu ? `clip-path mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center` : "mob:hidden"}`}>
+      className={`${showMenu ? "flex" : ""} clip-path mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center`}>
+      {/* className={`${showMenu ? `mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center` : ""} clip-path mob:hidden`}> */}
       {/* className={`${showMenu ? `clip-path mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center` : "mob:hidden"}`}> */}
       {/* className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:h-[90vh]" : "mob:hidden"}`}> */}
         <nav className="text-lg flex flex-col items-center md:justify-between">
