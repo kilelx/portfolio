@@ -68,26 +68,27 @@ export default function Header() {
 
     if(showMenu) {
       console.log(showMenu);
-      tlMenu
-      .to(menuRef.current, {
+      // tlMenu
+      gsap.to(menuRef.current, {
         display: "flex",
         height: `calc(100vh - ${headerHeight}px)`,
         duration: 0
       })
-      .to('.clip-path', {
+      gsap.to(menuRef.current, {
         "--clip": "150%",
-        duration: 1
+        duration: 1,
       })
     } else if(!showMenu) {
-      tlMenu
-      .to('.clip-path', {
+      gsap
+      .to(menuRef.current, {
         "--clip": "0%",
         duration: 1
       })
-      .to(menuRef.current, {
+      gsap.to(menuRef.current, {
         height: `fit-content`,
         display: 'none',
-        duration: 0
+        duration: 0,
+        delay: 1
       })
     }
   }, [showMenu])
@@ -108,7 +109,7 @@ export default function Header() {
       {/* mob:h-[calc(100vh - ${headerHeight}px)] */}
       <div
       ref={menuRef}
-      className={`${showMenu ? "flex" : ""} clip-path mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center`}>
+      className={`${showMenu ? "flex" : ""} mob:clip-path mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:items-center mob:justify-center`}>
       {/* className={`${showMenu ? `mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center` : ""} clip-path mob:hidden`}> */}
       {/* className={`${showMenu ? `clip-path mob:absolute mob:bg-dark mob:w-screen mob:top-full mob:-left-[30px] mob:flex mob:items-center mob:justify-center` : "mob:hidden"}`}> */}
       {/* className={`${showMenu ? "mob:flex mob:items-center mob:justify-center mob:h-[90vh]" : "mob:hidden"}`}> */}
